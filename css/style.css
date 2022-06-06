@@ -12,6 +12,7 @@
   --paragraph: #384633;
   --white: #3E3E3E;
   
+  --nav-heigth: 7.2rem
 }
 
 * {
@@ -28,10 +29,59 @@ body {
   text-align: center;
 }
 
-main {
+.wrapper {
   width: 37.5rem;
   margin-inline: auto;
-  margin-top: 4.1rem;
+}
+
+/* ===== HEADER ============================== */
+nav {
+  display: flex;
+
+  height: var(--nav-heigth);
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 2.4rem;
+}
+
+nav.scroll {
+  background-color: var(--brand-hover);
+  width: 100vw;
+}
+
+nav.scroll svg path{
+  fill: white;
+}
+
+nav.scroll .icon-menu{
+  color: white;
+}
+/* ===== MAIN ============================== */
+main {
+  margin-top: calc(4.1rem + var(--nav-heigth));  
+}
+
+main::before {
+  content: "";
+  width: 100vw;
+  height: calc(108rem + var(--nav-heigth));
+  background-color: var(--brand-light);
+
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 h4 {
@@ -83,3 +133,42 @@ button {
 button:hover {
   background-color: var(--brand-hover);
 }
+
+main img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+.stats {
+  width: 32.7rem;
+  padding-block: 4rem;
+  background-color: var(--brand-beige);
+
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  justify-content: center;
+  gap: 6rem;
+
+  border: 1px solid var(--brand-light);
+  border-radius: .6rem;
+}
+
+.stat h3 {
+  line-height: 130%;
+  color: var(--headline);
+  font-size: 4.8rem;
+
+  margin-bottom: .4rem;
+}
+
+.stat p {
+  color: var(--brand);
+  margin: 0;
+  line-height: 150%;
+}
+
+
+
